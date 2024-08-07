@@ -338,6 +338,38 @@
             color: #333;
             font-size: 1.2em;
         }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-links a {
+                padding: 15px;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                background: rgba(169, 169, 169, 0.9);
+            }
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+                padding: 10px;
+                color: white;
+            }
+            .nav-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px;
+                background: white;
+            }
+        }
     </style>
 </head>
 <body>
@@ -345,24 +377,32 @@
         <h1>David Agyei</h1>
     </header>
     <nav>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="social-media">
             <a href="https://twitter.com/yourprofile" target="_blank"><img src="instagram_icon.png" alt="Instagram"></a>
             <a href="https://linkedin.com/in/yourprofile" target="_blank"><img src="linkedin_icon.png" alt="LinkedIn"></a>
             <a href="https://github.com/yourprofile" target="_blank"><img src="github_icon.png" alt="GitHub"></a>
         </div>
-        <a href="#about">About</a>
-        <a href="#video">Portfolio</a>
-        <a href="#projects">Projects</a>
-        <a href="#classes">Classes</a>
-        <a href="#honors">Honors</a>
-        <a href="#skills">Skills</a>
-        <a href="#extracurricular">Extracurricular</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#video">Video</a>
+            <a href="#projects">Projects</a>
+            <a href="#classes">Classes</a>
+            <a href="#honors">Honors</a>
+            <a href="#skills">Skills</a>
+            <a href="#extracurricular">Extracurricular</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
     <div class="hero"></div>
     <div class="content">
         <section id="about" class="about-section">
             <h2>About Me</h2>
+            <img src="picture.png" alt="Profile Picture" class="profile-picture">
             <p class="info">
                 I’m a sophomore at the University of Chicago, where I’m pursuing a double major in Computer Science and Media Arts and Design.
                 My passion lies at the intersection of technology and creativity, where I strive to solve complex problems using innovative programming algorithms.
@@ -391,9 +431,9 @@
             <h2>My Projects</h2>
             <p class="info">Here are some of my projects:</p>
             <div class="project-list">
-                <a href="https://linktoyourproject1.com" class="project" style="background-image: url('hrl.png');">
+                <a href="https://linktoyourproject1.com" class="project" style="background-image: url('project1-image.jpg');">
                     <div class="overlay">
-                        <strong>KeyTrack:</strong> Key Management System for University of Chicago Housing & Residence Life
+                        <strong>Project 1:</strong> Description of project 1.
                     </div>
                 </a>
                 <a href="https://linktoyourproject2.com" class="project" style="background-image: url('project2-image.jpg');">
@@ -533,6 +573,16 @@
             e.preventDefault();
             alert('Thank you for your message!');
             this.reset();
+        });
+
+        // Toggle navigation menu for mobile
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+            }
         });
     </script>
 </body>
